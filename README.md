@@ -18,13 +18,18 @@
 
 ## 📌 Overview
 
-Magic signatures · entropy · PE/ELF/Mach-O parser ║
+OBinwalk is a binary forensic analyzer for firmware and unknown files, combining magic-signature scanning, entropy analysis and hand-written PE/ELF/Mach-O parsing. It extracts strings and IOCs, detects polyglots and packers, applies YARA-like rules and can carve embedded objects out of a binary. Results can be streamed to JSON or written to an output directory for further analysis.
 
 ---
 
 ## ✨ Features
 
-- OBinwalk v2.1.0 — Binary forensic analysis: signatures, entropy, PE/ELF/Mach-O, IOC, YARA, carve
+- Magic-signature scanning with entropy analysis
+- Hand-written PE/ELF/Mach-O parsing with import/export tables
+- Embedded-object carving from a file to an output directory
+- String extraction, IOC detection and polyglot identification
+- YARA-like rule matching, packer identification and anti-analysis detection
+- JSON report output (file or stdout) and batch directory scanning
 
 ---
 
@@ -38,7 +43,10 @@ Magic signatures · entropy · PE/ELF/Mach-O parser ║
 ## 🚀 Usage
 
 ```bash
-./OBinwalk
+./OBinwalk --scan firmware.bin
+./OBinwalk --carve firmware.bin -o ./carved/
+./OBinwalk --batch ./images/ --json
+./OBinwalk --help
 ```
 
 ---
